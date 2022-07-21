@@ -64,12 +64,33 @@ function playRound(playerSelection, computerSelection) {
 // not butchering the player and computer choices
 
 
-const total = playRound(playerSelection, computerSelection);
+//const total = playRound(playerSelection, computerSelection);
+ 
+//let bunz = 0
+//
+//for (let i = 0; i < 5; i++) {
+//    bunz++;
+//    console.log(i);
+//    console.log(bunz + ' bunz');
+//    getComputerChoice();
+//    console.log(getComputerChoice() + ' comp');
+//    getPlayerSelection();
+//    console.log(getPlayerSelection() + ' play');
+//    playRound();
+//    console.log(playRound());
+//}
 
-console.log(playerSelection);
-console.log(computerSelection);
+
+// I WAS ON TO SOMETHING ABOVE WITH THIS BUNZ LOOP!!!!
+// I THINK I NEED TO ENCAPSULATE THE PLAYROUND FUNCTION 
+// INSIDE THE LOOP
+
+
+
+//console.log(playerSelection);
+//console.log(computerSelection);
 //console.log(playRound(playerSelection, computerSelection));
-console.log(total);
+//console.log();
 
 
 
