@@ -1,4 +1,3 @@
-
 // This is the computer's random choice generator.
 
 function getComputerChoice(min, max) {
@@ -14,7 +13,7 @@ function getComputerChoice(min, max) {
         return 'scissors';
     }
 }
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
 
 
 
@@ -33,16 +32,16 @@ function getPlayerSelection() {
         wrongSelection();
     }
 }
-console.log(getPlayerSelection());
+//console.log(getPlayerSelection());
 
 // Everything is good above this
 
-function game() {
 
-    const score = playRound();
-    return score;
 
 // This is the function to determine the round winner.
+
+const playerSelection = getPlayerSelection();
+const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection == 'rock' && computerSelection == 'scissors')  || 
@@ -61,41 +60,21 @@ function playRound(playerSelection, computerSelection) {
        }
 }
 
-const playerSelection = getPlayerSelection();
-const computerSelection = getComputerChoice();
-}
-
-console.log(game());
 
 
 
-
-
-
-
-
-
-
-
-
-
+const total = playRound(playerSelection, computerSelection);
 
 //console.log(playerSelection);
 //console.log(computerSelection);
 //console.log(playRound(playerSelection, computerSelection));
+console.log(total);
 
 
-// This function is to tally up the total score.
 
-//function tallyTotal(score) {
-//
-//    for (let i = 0; i < 5; i++) {
-//        playerSelection;
-//        playRound(playerSelection, computerSelection);
-//        return 'Hey';
-//    }
-//}
-//
+
+
+
 
 
 
