@@ -54,19 +54,20 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == 'scissors' && computerSelection == 'rock')) {
         return 'lose';
             //return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
-       } else {
+       } else if (playerSelection === computerSelection) {
         return 'draw';
         //return alert('It\'s a draw!');
        }
 }
 
-
+// Now I gotta figure out how to get the game to loop while
+// not butchering the player and computer choices
 
 
 const total = playRound(playerSelection, computerSelection);
 
-//console.log(playerSelection);
-//console.log(computerSelection);
+console.log(playerSelection);
+console.log(computerSelection);
 //console.log(playRound(playerSelection, computerSelection));
 console.log(total);
 
