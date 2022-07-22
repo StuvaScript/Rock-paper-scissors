@@ -60,38 +60,38 @@ function playRound(playerSelection, computerSelection) {
        }
 }
 
-// Now I gotta figure out how to get the game to loop while
-// not butchering the player and computer choices
 
+//console.log(playerSelection + ' player');
+//console.log(computerSelection + ' comp');
+//console.log(playRound(playerSelection, computerSelection) + ' round');
 
-//const total = playRound(playerSelection, computerSelection);
- 
-//let bunz = 0
-//
-//for (let i = 0; i < 5; i++) {
-//    bunz++;
-//    console.log(i);
-//    console.log(bunz + ' bunz');
-//    getComputerChoice();
-//    console.log(getComputerChoice() + ' comp');
-//    getPlayerSelection();
-//    console.log(getPlayerSelection() + ' play');
-//    playRound();
-//    console.log(playRound());
-//}
-
-
-// I WAS ON TO SOMETHING ABOVE WITH THIS BUNZ LOOP!!!!
-// I THINK I NEED TO ENCAPSULATE THE PLAYROUND FUNCTION 
-// INSIDE THE LOOP
+//const outcome = playRound(playerSelection, computerSelection);
 
 
 
-//console.log(playerSelection);
-//console.log(computerSelection);
-//console.log(playRound(playerSelection, computerSelection));
-//console.log();
 
+function game() {
+    
+
+    for (let i = 0; i < 5; i++) {
+        console.log(i);
+        getComputerChoice();
+        console.log(computerSelection);
+        getPlayerSelection();
+        console.log(playerSelection);
+        playRound(playerSelection ,computerSelection);
+        console.log(playRound());
+        
+        
+    
+}
+
+return playRound();
+
+}
+
+
+console.log(game());
 
 
 
