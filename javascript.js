@@ -19,22 +19,25 @@ function getComputerChoice(min, max) {
 // This is where the player chooses their weapon.
 
 function getPlayerSelection() {
+
     let choice = prompt('Choose either rock, paper, or scissors');
     choice = choice.toLowerCase();
     if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
         return choice;
     } else {
         function wrongSelection() {
-            alert('That\'s not an option');
-            
+            alert('That\'s not an option'); 
         }
         wrongSelection();
     }
+
+
 }
 
 
 // This looping function encases the single round function and
-// plays multiple games.
+// plays multiple games. Then it tallies the total score and 
+// declares who the winner is.
 
 function game() {
     
@@ -51,15 +54,12 @@ function game() {
             (playerSelection == 'paper' && computerSelection == 'rock') || 
             (playerSelection == 'scissors' && computerSelection == 'paper')) {
                 return 'win';
-                //return win = alert(`You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
                 } else if ((playerSelection == 'rock' && computerSelection == 'paper')  || 
                 (playerSelection == 'paper' && computerSelection == 'scissors') || 
                 (playerSelection == 'scissors' && computerSelection == 'rock')) {
                 return 'lose';
-                    //return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
             } else if (playerSelection === computerSelection) {
                 return 'draw';
-                //return alert('It\'s a draw!');
             }
         }
 
@@ -70,11 +70,18 @@ function game() {
         console.log(computerSelection + ' comp');
         console.log(playRound(playerSelection, computerSelection) + ' round');
         
+        // This function keeps a running tally of each player's
+        // points.
+
         function tally() {
             if (playRound(playerSelection, computerSelection) == 'win') {
                 playerScore++;
+                return win = alert(`You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
             } else if (playRound(playerSelection, computerSelection) == 'lose') {
                 compScore++;
+                return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
+            } else if (playRound(playerSelection, computerSelection) == 'draw') {
+                return alert('It\'s a draw!');
             }
         }
         tally();
@@ -83,52 +90,21 @@ function game() {
         console.log(compScore + ' comp score');
     }
 
-    if (playerScore > compScore) {
-        return alert('Winner!');
-    } else if (playerScore < compScore) {
-        return alert('Sorry you loser');
-    } else {
-        return alert('Draw!');
-    }
+    // This part tells who the overall champion is.
 
+    if (playerScore > compScore) {
+        return alert('You are the ultimate winner!!');
+    } else if (playerScore < compScore) {
+        return alert('Sorry but you\'re a loser');
+    } else {
+        return alert('The game is a wash!');
+    }
 
 }   
 
 
-//const outcome = playRound(playerSelection, computerSelection);
 
-
-// function game() {
-    
-//     let playerScore = 0;
-//     let compScore = 0;
-
-//     for (let i = 0; i < 5; i++) {
-//         console.log(i);
-//         playRound();
-//         if (playRound() == 'win') {
-//             playerScore += 1;
-//         } else if (playRound() == 'lose') {
-//             compScore += 1;
-//         }
-//     getComputerChoice();
-//     getPlayerSelection();
-        
-//     }
-
-//     if (playerScore > compScore) {
-//         return 'Winner!';
-//     } else if ( playerScore < compScore) {
-//         return 'You lose';
-//     } else {
-//         return 'Draw!';
-//     }
-
-
-// }
-
-
-console.log(game());
+game();
 
 
 
