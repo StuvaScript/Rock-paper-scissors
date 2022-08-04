@@ -1,5 +1,12 @@
 
-// This is the computer's random choice generator.
+// This is the click event
+
+const btns = document.querySelectorAll('button');
+btns.forEach(button => button.addEventListener('click', (e) => {
+    console.log(e.target.id + ' my clicky');
+    
+
+// This is the computer's random choice generator
 
 function getComputerChoice(min, max) {
     min = 1;
@@ -16,36 +23,30 @@ function getComputerChoice(min, max) {
 }
 
 
-// This is where the player chooses their weapon.
+// This is where the player chooses their weapon based off the click event
 
-function getPlayerSelection() {
+function getPlayerSelection(choice) {
 
-    let choice = prompt('Choose either rock, paper, or scissors');
-    choice = choice.toLowerCase();
+    choice = e.target.id;
     if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
         return choice;
-    } else {
-        function wrongSelection() {
-            alert('That\'s not an option'); 
-        }
-        wrongSelection();
-        weapon(); // What is this function "weapon()"??
     }
 
 }
+
 
 
 // This looping function encases the single round function and
 // plays multiple games. Then it tallies the total score and 
 // declares who the winner is.
 
-function game() {
+// function game() {
     
     let playerScore = 0;
     let compScore = 0;
 
-    for (let i = 0; i < 5; i++) {
-        console.log(i);
+//     for (let i = 0; i < 5; i++) {
+//         console.log(i);
             
         // This is the function to determine the round winner.
 
@@ -88,28 +89,27 @@ function game() {
 
         console.log(playerScore + ' player score');
         console.log(compScore + ' comp score');
-    }
+//     }
 
-    // This part tells who the overall champion is.
+//     // This part tells who the overall champion is.
 
-    if (playerScore > compScore) {
-        return alert('You are the ultimate winner!!');
-    } else if (playerScore < compScore) {
-        return alert('Sorry but you\'re a loser');
-    } else {
-        return alert('The game is a wash!');
-    }
+//     if (playerScore > compScore) {
+//         return alert('You are the ultimate winner!!');
+//     } else if (playerScore < compScore) {
+//         return alert('Sorry but you\'re a loser');
+//     } else {
+//         return alert('The game is a wash!');
+//     }
 
-}   
-
-
-
-game();
+// }   
 
 
 
+// game();
 
 
+
+}));
 
 
 
