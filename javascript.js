@@ -1,10 +1,9 @@
 
-// This is the click event
+// This is the click event and it wraps all functions
 
 const btns = document.querySelectorAll('button');
 btns.forEach(button => button.addEventListener('click', (e) => {
     console.log(e.target.id + ' my clicky');
-
 
 
 
