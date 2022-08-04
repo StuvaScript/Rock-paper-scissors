@@ -29,8 +29,8 @@ function getPlayerSelection() {
             alert('That\'s not an option'); 
         }
         wrongSelection();
+        weapon(); // What is this function "weapon()"??
     }
-
 
 }
 
