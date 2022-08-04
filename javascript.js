@@ -4,7 +4,9 @@
 const btns = document.querySelectorAll('button');
 btns.forEach(button => button.addEventListener('click', (e) => {
     console.log(e.target.id + ' my clicky');
-    
+
+
+
 
 // This is the computer's random choice generator
 
@@ -25,9 +27,9 @@ function getComputerChoice(min, max) {
 
 // This is where the player chooses their weapon based off the click event
 
-function getPlayerSelection(choice) {
+function getPlayerSelection() {
 
-    choice = e.target.id;
+    let choice = e.target.id; // <= click event listener
     if (choice == 'rock' || choice == 'paper' || choice == 'scissors') {
         return choice;
     }
@@ -42,8 +44,7 @@ function getPlayerSelection(choice) {
 
 // function game() {
     
-    let playerScore = 0;
-    let compScore = 0;
+    
 
 //     for (let i = 0; i < 5; i++) {
 //         console.log(i);
@@ -93,14 +94,18 @@ function getPlayerSelection(choice) {
 
 //     // This part tells who the overall champion is.
 
-//     if (playerScore > compScore) {
-//         return alert('You are the ultimate winner!!');
-//     } else if (playerScore < compScore) {
-//         return alert('Sorry but you\'re a loser');
-//     } else {
-//         return alert('The game is a wash!');
-//     }
+    if (playerScore == 5 && compScore != 5) {
+        reset();
+        return alert('You are the ultimate winner!!');
+    } else if (compScore == 5 && playerScore != 5) {
+        reset();
+        return alert('Sorry but you\'re a loser');
+    }
 
+    function reset() {
+        playerScore = 0;
+        compScore = 0;
+    }
 // }   
 
 
@@ -111,6 +116,5 @@ function getPlayerSelection(choice) {
 
 }));
 
-
-
-
+let playerScore = 0;
+let compScore = 0;
