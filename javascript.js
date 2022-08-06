@@ -3,12 +3,15 @@
 
 const btns = document.querySelectorAll('button');
 btns.forEach(button => button.addEventListener('click', (e) => {
-    console.log(e.target.id + ' my clicky');
+    // console.log(e.target.id + ' my clicky');
 
     if(e.target.id != 'rock' && e.target.id != 'paper' && e.target.id != 'scissors') {
         return;
     }
 
+    if (playerScore == 2 || compScore == 2) {
+        return;
+    }
     // This is the computer's random choice generator
 
     function getComputerChoice(min, max) {
@@ -77,32 +80,19 @@ btns.forEach(button => button.addEventListener('click', (e) => {
     console.log(playerScore + ' player score');
     console.log(compScore + ' comp score');
 
-    let champ = '';
+    
     // This part tells who the overall champion is.
     function findWinner() {
-        if (playerScore == 1) {
+        if (playerScore == 2) {
             champ = 'Win';
             declareWinner();
-            // reset();
-        } else if (compScore == 1) {
+        } else if (compScore == 2) {
             champ = 'Lose';
             declareWinner();
-            // reset();
         }
     }
-    findWinner();
 
-    
-    function declareWinner() {
-        const body = document.querySelector('body');
-        const br = document.createElement('br');
-        br.classList.add('newBreak');
-        const div = document.createElement('div');
-        div.classList.add('newDiv');
-        div.textContent = `${champ}`;
-        body.appendChild(br);
-        body.appendChild(div);
-    }
+    findWinner();
 
     const playerTotal = document.querySelector('#player');
     playerTotal.textContent = `${playerScore}`;
@@ -113,9 +103,23 @@ btns.forEach(button => button.addEventListener('click', (e) => {
 
 }));
 
+let champ = '';
+
+const body = document.querySelector('body');
+const br = document.createElement('br');
+br.classList.add('newBreak');
+const div = document.createElement('div');
+div.classList.add('newDiv');
+
+function declareWinner() {
+    div.textContent = `${champ}`;
+    body.appendChild(br);
+    body.appendChild(div);
+}
 
 let playerScore = 0;
 let compScore = 0;
+
 
 const playerTotal = document.querySelector('#player');
 playerTotal.textContent = `${playerScore}`;
@@ -123,18 +127,12 @@ playerTotal.textContent = `${playerScore}`;
 const compTotal = document.querySelector('#computer');
 compTotal.textContent = `${compScore}`;
 
-
-
-const body = document.querySelector('body');
 const newGame = document.querySelector('#newGame');
-newGame.addEventListener('click', reset());
+newGame.addEventListener('click', reset);
 
 function reset() {
-    const body = document.querySelector('body');
     playerScore = 0;
     compScore = 0;
-    champ = '';
-    body.removeChild('#newBreak');
+    body.removeChild(br);
     body.removeChild(div);
-    alert('pppooooop');
 }
