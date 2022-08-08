@@ -3,13 +3,12 @@
 
 const btns = document.querySelectorAll('button');
 btns.forEach(button => button.addEventListener('click', (e) => {
-    // console.log(e.target.id + ' my clicky');
 
     if(e.target.id != 'rock' && e.target.id != 'paper' && e.target.id != 'scissors') {
         return;
     }
 
-    if (playerScore == 2 || compScore == 2) {
+    if (playerScore == 5 || compScore == 5) {
         return;
     }
     // This is the computer's random choice generator
@@ -57,9 +56,6 @@ btns.forEach(button => button.addEventListener('click', (e) => {
     const playerSelection = getPlayerSelection();
     const computerSelection = getComputerChoice();
 
-    console.log(playerSelection + ' player');
-    console.log(computerSelection + ' comp');
-    console.log(playRound(playerSelection, computerSelection) + ' round');
     
     // This function keeps a running tally of each player's
     // points.
@@ -69,29 +65,24 @@ btns.forEach(button => button.addEventListener('click', (e) => {
         if (playRound(playerSelection, computerSelection) == 'win') {
             playerScore++;
             return roundWin.textContent = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
-            // return win = alert(`You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
         } else if (playRound(playerSelection, computerSelection) == 'lose') {
             compScore++;
             return roundWin.textContent = `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
-            // return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
         } else if (playRound(playerSelection, computerSelection) == 'draw') {
             return roundWin.textContent = 'It\'s a draw!';
-            // return alert('It\'s a draw!');
         }
     }
     tally();
 
-    console.log(playerScore + ' player score');
-    console.log(compScore + ' comp score');
-
     
     // This part tells who the overall champion is.
+
     function findWinner() {
-        if (playerScore == 2) {
-            champ = 'Win';
+        if (playerScore == 5) {
+            champ = 'Congrats! You are the ultimate winner!!!';
             declareWinner();
-        } else if (compScore == 2) {
-            champ = 'Lose';
+        } else if (compScore == 5) {
+            champ = 'Sorry but you suck. Lolz';
             declareWinner();
         }
     }
@@ -143,7 +134,7 @@ function reset() {
     compTotal.textContent = 0;
     playerTotal.textContent = 0;
     roundWin.textContent = '';
-    if (!document.querySelector('#newBreak')) {
+    if (!document.querySelector('.newBreak')) {
         return;
     }
     body.removeChild(br);
