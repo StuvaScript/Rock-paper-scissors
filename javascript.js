@@ -64,15 +64,19 @@ btns.forEach(button => button.addEventListener('click', (e) => {
     // This function keeps a running tally of each player's
     // points.
 
+
     function tally() {
         if (playRound(playerSelection, computerSelection) == 'win') {
             playerScore++;
-            return win = alert(`You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
+            return roundWin.textContent = `You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`;
+            // return win = alert(`You Win! ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)} beats ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)}`);
         } else if (playRound(playerSelection, computerSelection) == 'lose') {
             compScore++;
-            return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
+            return roundWin.textContent = `You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`;
+            // return lose = alert(`You Lose! ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)} beats ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)}`);
         } else if (playRound(playerSelection, computerSelection) == 'draw') {
-            return alert('It\'s a draw!');
+            return roundWin.textContent = 'It\'s a draw!';
+            // return alert('It\'s a draw!');
         }
     }
     tally();
@@ -102,6 +106,9 @@ btns.forEach(button => button.addEventListener('click', (e) => {
     
 
 }));
+
+const roundWin = document.querySelector('#roundWin');
+roundWin.textContent = '';
 
 let champ = '';
 
@@ -133,6 +140,12 @@ newGame.addEventListener('click', reset);
 function reset() {
     playerScore = 0;
     compScore = 0;
+    compTotal.textContent = 0;
+    playerTotal.textContent = 0;
+    roundWin.textContent = '';
+    if (!document.querySelector('#newBreak')) {
+        return;
+    }
     body.removeChild(br);
     body.removeChild(div);
 }
