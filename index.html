@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Rock, Paper, Scissors</title>
-        <link rel="stylesheet" href="./styles.css">
-        <script src="javascript.js" defer></script>
-    </head>
-    <body>
-        <button id="newGame">New Game</button>
-        <br>
-        <br>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-        <br>
-        <br>
-        <span id="roundWin"></span>
-        <br>
-        <br>
-        <div>Player: <span id="player"></span></div>
-        <div>Computer: <span id="computer"></span></div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="javascript.js" defer></script>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="container">
+      <button id="newGame">New Game</button>
+      <br />
+      <br />
+      <div class="weapon-crate">
+        <div class="card wobble-skew-on-hover">
+          <img src="./images/stone.png" alt="rock" id="rock" class="weapon"></img>
+        </div>
+        <div class="card wobble-skew-on-hover">
+          <img src="./images/airplane.png" alt="paper" id="paper" class="weapon"></img>
+        </div>
+        <div class="card wobble-skew-on-hover">
+          <img src="./images/scissors.png" alt="scissors" id="scissors" class="weapon"></img>
+        </div>
+      </div>
+      <br />
+      <br />
+      <span id="roundWin"></span>
+      <br />
+      <br />
+      <div>Player: <span id="player"></span></div>
+      <div>Computer: <span id="computer"></span></div>
+    </div>
+  </body>
 </html>
