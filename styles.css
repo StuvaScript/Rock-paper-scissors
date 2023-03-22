@@ -5,6 +5,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgb(230, 73, 244), -2px -2px 5px rgb(230, 73, 244);
 }
 
 .overlay {
@@ -18,13 +21,15 @@ body {
 }
 
 .container {
+  /* background: red; */
+  width: clamp(300px, 50vw, 700px);
   z-index: 3;
 }
 
 .weapon-crate {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 5%;
 }
 
 .card {
@@ -35,7 +40,7 @@ body {
 }
 
 img {
-  width: 100px;
+  width: 100%;
 }
 
 /*===================*/

@@ -68,20 +68,20 @@ btns.forEach((weapon) =>
     function tally() {
       if (playRound(playerSelection, computerSelection) == "win") {
         playerScore++;
-        return (roundWin.textContent = `You Win! ${
+        return (roundWin.innerText = `You Win! ${
           playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
         } beats ${
           computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
         }`);
       } else if (playRound(playerSelection, computerSelection) == "lose") {
         compScore++;
-        return (roundWin.textContent = `You Lose! ${
+        return (roundWin.innerText = `You Lose! ${
           computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
         } beats ${
           playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
         }`);
       } else if (playRound(playerSelection, computerSelection) == "draw") {
-        return (roundWin.textContent = "It's a draw!");
+        return (roundWin.innerText = "It's a draw!");
       }
     }
     tally();
@@ -101,38 +101,38 @@ btns.forEach((weapon) =>
     findWinner();
 
     const playerTotal = document.querySelector("#player");
-    playerTotal.textContent = `${playerScore}`;
+    playerTotal.innerText = `${playerScore}`;
 
     const compTotal = document.querySelector("#computer");
-    compTotal.textContent = `${compScore}`;
+    compTotal.innerText = `${compScore}`;
   })
 );
 
 const roundWin = document.querySelector("#roundWin");
-roundWin.textContent = "";
+roundWin.innerText = "";
 
 let champ = "";
 
-const body = document.querySelector("body");
+const container = document.querySelector(".container");
 const br = document.createElement("br");
 br.classList.add("newBreak");
 const div = document.createElement("div");
 div.classList.add("newDiv");
 
 function declareWinner() {
-  div.textContent = `${champ}`;
-  body.appendChild(br);
-  body.appendChild(div);
+  div.innerText = `${champ}`;
+  container.appendChild(br);
+  container.appendChild(div);
 }
 
 let playerScore = 0;
 let compScore = 0;
 
 const playerTotal = document.querySelector("#player");
-playerTotal.textContent = `${playerScore}`;
+playerTotal.innerText = `${playerScore}`;
 
 const compTotal = document.querySelector("#computer");
-compTotal.textContent = `${compScore}`;
+compTotal.innerText = `${compScore}`;
 
 const newGame = document.querySelector("#newGame");
 newGame.addEventListener("click", reset);
@@ -140,12 +140,12 @@ newGame.addEventListener("click", reset);
 function reset() {
   playerScore = 0;
   compScore = 0;
-  compTotal.textContent = 0;
-  playerTotal.textContent = 0;
-  roundWin.textContent = "";
+  compTotal.innerText = 0;
+  playerTotal.innerText = 0;
+  roundWin.innerText = "";
   if (!document.querySelector(".newBreak")) {
     return;
   }
-  body.removeChild(br);
-  body.removeChild(div);
+  container.removeChild(br);
+  container.removeChild(div);
 }
