@@ -1,4 +1,23 @@
+// ----- GLOBAL VARIABLES/DOM QUERIES -----
+
+const display = document.querySelector("#display");
+const playerTotal = document.querySelector("#player");
+const compTotal = document.querySelector("#computer");
+const newGame = document.querySelector("#new-game");
 const weapons = document.querySelectorAll(".weapon");
+
+let playerScore = 0;
+let compScore = 0;
+
+// ----- DISPLAYED DATA -----
+
+display.innerText = "Choose your weapon!";
+playerTotal.innerText = `${playerScore}`;
+compTotal.innerText = `${compScore}`;
+
+// ----- EVENT LISTENERS -----
+
+// Game logic when you click the images
 weapons.forEach((weapon) =>
   weapon.addEventListener("click", (e) => {
     if (playerScore == 5 || compScore == 5) {
@@ -9,37 +28,19 @@ weapons.forEach((weapon) =>
     const computerSelection = getComputerChoice();
     const round = playRound(playerSelection, computerSelection);
 
-    tally(round, playerSelection, computerSelection);
+    tally(round);
 
-    findWinner();
+    displayWinner(round, playerSelection, computerSelection);
 
     playerTotal.innerText = `${playerScore}`;
     compTotal.innerText = `${compScore}`;
   })
 );
 
-const display = document.querySelector("#display");
-display.innerText = "Choose your weapon!";
-
-let champ = "";
-
-const container = document.querySelector(".container");
-const br = document.createElement("br");
-br.classList.add("newBreak");
-const div = document.createElement("div");
-div.classList.add("newDiv");
-
-let playerScore = 0;
-let compScore = 0;
-
-const playerTotal = document.querySelector("#player");
-playerTotal.innerText = `${playerScore}`;
-
-const compTotal = document.querySelector("#computer");
-compTotal.innerText = `${compScore}`;
-
-const newGame = document.querySelector("#new-game");
+// Resets game when clicking "New Game?" button
 newGame.addEventListener("click", reset);
+
+// ----- FUNCTIONS -----
 
 function reset() {
   playerScore = 0;
@@ -49,8 +50,7 @@ function reset() {
   display.innerText = "Choose your weapon!";
 }
 
-// This is the computer's random choice generator
-
+// Computer's random choice generator
 function getComputerChoice() {
   min = 1;
   max = 3;
@@ -68,8 +68,7 @@ function getComputerChoice() {
   }
 }
 
-// This is the function to determine the round winner.
-
+// Determines the round winner.
 function playRound(playerSelection, computerSelection) {
   if (
     (playerSelection == "rock" && computerSelection == "scissors") ||
@@ -83,18 +82,30 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "scissors" && computerSelection == "rock")
   ) {
     return "lose";
-  } else if (playerSelection === computerSelection) {
+  } else {
     return "draw";
   }
 }
 
-// This function keeps a running tally of each player's
-// points.
+// Adds to each player's points and displays each round winner
+function tally(round) {
+  if (round === "win") {
+    playerScore++;
+  } else if (round === "lose") {
+    compScore++;
+  }
+}
 
-function tally(round, playerSelection, computerSelection) {
+// Displays the winner
+function displayWinner(round, playerSelection, computerSelection) {
+  if (playerScore === 5) {
+    return (display.innerText = "Congrats! You rule!!!");
+  } else if (compScore === 5) {
+    return (display.innerText = "Sorry but you suck. Lolz");
+  }
+
   switch (round) {
     case "win":
-      playerScore++;
       return (display.innerText = `You Win! ${
         playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
       } beats ${
@@ -102,7 +113,6 @@ function tally(round, playerSelection, computerSelection) {
       }`);
       break;
     case "lose":
-      compScore++;
       return (display.innerText = `You Lose! ${
         computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
       } beats ${
@@ -111,17 +121,5 @@ function tally(round, playerSelection, computerSelection) {
       break;
     case "draw":
       return (display.innerText = "It's a draw!");
-  }
-}
-
-// This part tells who the overall champion is.  // This part tells who the overall champion is.
-
-function findWinner() {
-  if (playerScore == 5) {
-    champ = "Congrats! You rule!!!";
-    display.innerText = `${champ}`;
-  } else if (compScore == 5) {
-    champ = "Sorry but you suck. Lolz";
-    display.innerText = `${champ}`;
   }
 }
