@@ -5,11 +5,14 @@
     <title>Rock, Paper, Scissors</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="javascript.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="overlay"></div>
     <div class="container">
-      <button id="newGame">New Game</button>
+      <button id="new-game">New Game?</button>
       <div class="weapon-crate">
         <div class="card wobble-skew-on-hover">
           <img src="./images/stone.png" alt="rock" id="rock" class="weapon"></img>
@@ -21,9 +24,17 @@
           <img src="./images/scissors.png" alt="scissors" id="scissors" class="weapon"></img>
         </div>
       </div>
-      <span id="roundWin"></span>
-      <div>Player: <span id="player"></span></div>
-      <div>Computer: <span id="computer"></span></div>
+      <div id="round-win"></div>
+      <div class="player-wrap">
+        <div>
+          <p>Player: </p>
+          <div id="player"></div>
+        </div>
+        <div>
+          <p>Computer: </p>
+          <div id="computer"></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

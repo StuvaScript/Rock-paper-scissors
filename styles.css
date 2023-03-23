@@ -8,6 +8,7 @@ body {
   color: white;
   font-size: 2rem;
   text-shadow: 2px 2px 5px rgb(230, 73, 244), -2px -2px 5px rgb(230, 73, 244);
+  font-family: "Open Sans", sans-serif;
 }
 
 .overlay {
@@ -20,8 +21,21 @@ body {
   z-index: 2;
 }
 
+#new-game {
+  background: white;
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  padding: 10px 20px;
+  border: 5px solid black;
+  border-radius: 50px;
+  font-family: "Open Sans", sans-serif;
+}
+
 .container {
-  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: clamp(300px, 50vw, 700px);
   z-index: 3;
 }
@@ -41,6 +55,22 @@ body {
 
 img {
   width: 100%;
+}
+
+#round-win {
+  padding: 30px 0px;
+}
+
+.player-wrap {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.player-wrap > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /*===================*/

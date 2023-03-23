@@ -108,8 +108,8 @@ btns.forEach((weapon) =>
   })
 );
 
-const roundWin = document.querySelector("#roundWin");
-roundWin.innerText = "";
+const roundWin = document.querySelector("#round-win");
+roundWin.innerText = "Choose your weapon!";
 
 let champ = "";
 
@@ -120,9 +120,7 @@ const div = document.createElement("div");
 div.classList.add("newDiv");
 
 function declareWinner() {
-  div.innerText = `${champ}`;
-  container.appendChild(br);
-  container.appendChild(div);
+  roundWin.innerText = `${champ}`;
 }
 
 let playerScore = 0;
@@ -134,7 +132,7 @@ playerTotal.innerText = `${playerScore}`;
 const compTotal = document.querySelector("#computer");
 compTotal.innerText = `${compScore}`;
 
-const newGame = document.querySelector("#newGame");
+const newGame = document.querySelector("#new-game");
 newGame.addEventListener("click", reset);
 
 function reset() {
@@ -142,7 +140,7 @@ function reset() {
   compScore = 0;
   compTotal.innerText = 0;
   playerTotal.innerText = 0;
-  roundWin.innerText = "";
+  roundWin.innerText = "Choose your weapon!";
   if (!document.querySelector(".newBreak")) {
     return;
   }
