@@ -87,7 +87,7 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Adds to each player's points and displays each round winner
+// Adds to each player's points
 function tally(round) {
   if (round === "win") {
     playerScore++;
